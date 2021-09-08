@@ -11,8 +11,8 @@ import UIKit
 class AddContactViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var phoneNumberTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

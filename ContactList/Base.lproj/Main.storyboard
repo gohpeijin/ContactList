@@ -72,8 +72,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Rt-pQ-3f3">
+                                <rect key="frame" x="261" y="404" width="69" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <segue destination="BTo-hz-gVG" kind="unwind" unwindAction="unwindPageWithSegue:" id="v0E-a7-L0V"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnO-Vu-34V">
-                                <rect key="frame" x="34" y="414" width="298" height="69"/>
+                                <rect key="frame" x="20" y="404" width="185" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Delete"/>
@@ -195,7 +204,7 @@
         <!--Edit Contact-->
         <scene sceneID="Hy2-5n-81f">
             <objects>
-                <viewController id="Alt-T3-hja" customClass="AddContactViewController" customModule="ContactList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Alt-T3-hja" customClass="EditContactViewController" customModule="ContactList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WL3-mC-A1L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -218,7 +227,7 @@
                                 <size key="titleShadowOffset" width="8" height="9"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
-                                    <segue destination="1AO-xo-CII" kind="unwind" unwindAction="closeWithSegue:" id="PJb-nG-77E"/>
+                                    <segue destination="1AO-xo-CII" kind="unwind" unwindAction="unwindEditPageWithSegue:" id="fcu-Uv-wrB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqo-rr-hDl">
@@ -226,6 +235,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <size key="titleShadowOffset" width="8" height="9"/>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="Alt-T3-hja" eventType="touchUpInside" id="xKW-2a-WzD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -244,6 +256,10 @@
                         <viewLayoutGuide key="safeArea" id="YMB-gK-luj"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Contact" id="feg-r6-mFS"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="pel-Ds-iAx" id="cbX-Gc-oKd"/>
+                        <outlet property="phoneNumberTextField" destination="hbP-Ib-Udb" id="TvO-lK-BWh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ceJ-II-UAF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="1AO-xo-CII" userLabel="Exit" sceneMemberID="exit"/>

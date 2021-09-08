@@ -9,14 +9,26 @@
 import UIKit
 
 class EditContactViewController: UIViewController {
-
+    
+    var contact: ContactClass!
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if let contact = contact {
+            nameTextField.text =  contact.name
+            phoneNumberTextField.text = contact.phoneNumber
+        }
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func cancel(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+        //        performSegue(withIdentifier: "unwindAfterAdding", sender: self)
+    }
     /*
     // MARK: - Navigation
 

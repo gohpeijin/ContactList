@@ -14,7 +14,13 @@ class ContactDetailViewController: UIViewController {
     var isEdit: Bool = false
     
     @IBOutlet weak var labelPhoneNumber: UILabel!
+    @IBOutlet weak var labelPhoneNumber1: UILabel!
     @IBOutlet weak var labelContactName: UILabel!
+    @IBOutlet weak var labelOccupation: UILabel!
+    @IBOutlet weak var labelEmail: UILabel!
+    @IBOutlet weak var labelAddress: UILabel!
+    @IBOutlet weak var labelNotes: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         displayContent()
@@ -23,6 +29,11 @@ class ContactDetailViewController: UIViewController {
     func displayContent(){
         labelContactName.text = contact?.name
         labelPhoneNumber.text = contact?.phoneNumber
+        labelPhoneNumber1.text = contact?.phoneNumber
+        labelOccupation.text = contact.occupation!.isEmpty ? "N/A" : contact.occupation!
+        labelEmail.text = contact.email!.isEmpty ? "N/A" : contact.email!
+        labelAddress.text = contact.address!.isEmpty ? "N/A" : contact.address!
+        labelNotes.text = contact.notes!.isEmpty ? "N/A" : contact.notes!
     }
     
     @IBAction func unwindToViewContact(segue: UIStoryboardSegue){

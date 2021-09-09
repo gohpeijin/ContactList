@@ -11,8 +11,8 @@ import UIKit
 class ContactDetailViewController: UIViewController {
 
     var contact: Contact!
-    var isEdit: Bool = false
     
+    @IBOutlet weak var buttonDone: UIButton!
     @IBOutlet weak var labelPhoneNumber: UILabel!
     @IBOutlet weak var labelPhoneNumber1: UILabel!
     @IBOutlet weak var labelContactName: UILabel!
@@ -21,9 +21,18 @@ class ContactDetailViewController: UIViewController {
     @IBOutlet weak var labelAddress: UILabel!
     @IBOutlet weak var labelNotes: UILabel!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         displayContent()
+        UIchores()
+    }
+    
+    func UIchores(){
+        scrollView.contentSize = contentView.frame.size
+        buttonDone.layer.borderColor = UIColor.init(red: 13/255, green: 174/255, blue: 156/255, alpha: 1).cgColor
     }
     
     func displayContent(){
@@ -40,17 +49,18 @@ class ContactDetailViewController: UIViewController {
        guard let editContactVC = segue.source as? EditContactViewController else {return}
         let name = editContactVC.nameTextField.text!.isEmpty  ? contact?.name: editContactVC.nameTextField.text
         let phoneNumber = editContactVC.phoneNumberTextField.text!.isEmpty  ? contact?.name: editContactVC.phoneNumberTextField.text
+        let email = editContactVC.emailTextField.text
+        let occupation = editContactVC.occupationTextField.text
+        let address = editContactVC.addressTextField.text
+        let notes = editContactVC.additionalNotesTextField.text
         
-        if name == contact?.name && phoneNumber == contact?.phoneNumber{
-            print("run no edit")
-            return
-        }else{
-            print("run edit")
-            isEdit = true
-            contact.name = name!
-            contact.phoneNumber = phoneNumber!
-            displayContent()
-        }
+        contact.name = name!
+        contact.phoneNumber = phoneNumber!
+        contact.email = email!
+        contact.occupation = occupation!
+        contact.address = address!
+        contact.notes = notes!
+        displayContent()
     }
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -24,10 +24,10 @@ class ContactDetailViewController: UIViewController {
         labelContactName.text = contact?.name
         labelPhoneNumber.text = contact?.phoneNumber
     }
-    
-    @IBAction func deleteButtonPressed(_ sender: UIButton) {
-        isDelete = true
-    }
+//
+//    @IBAction func deleteButtonPressed(_ sender: UIButton) {
+//        isDelete = true
+//    }
     
     @IBAction func unwindEditPage(segue: UIStoryboardSegue){
        guard let editContactVC = segue.source as? EditContactViewController else {return}
@@ -49,7 +49,7 @@ class ContactDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editContactSegue"{
             guard let editContactVC = segue.destination as? EditContactViewController else {return}
-            editContactVC.contact = contact
+            editContactVC.contactedit = contact
     }
     }
 

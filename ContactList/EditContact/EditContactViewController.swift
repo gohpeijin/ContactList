@@ -10,7 +10,7 @@ import UIKit
 
 class EditContactViewController: UIViewController {
     
-    var contact: Contact!
+    var contactedit: Contact!
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
@@ -18,7 +18,7 @@ class EditContactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let contact = contact {
+        if let contact = contactedit {
             nameTextField.text =  contact.name
             phoneNumberTextField.text = contact.phoneNumber
         }
@@ -29,14 +29,14 @@ class EditContactViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
         //        performSegue(withIdentifier: "unwindAfterAdding", sender: self)
     }
-    /*
+ 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//    }
+ 
 
 }

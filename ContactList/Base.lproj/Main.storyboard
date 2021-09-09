@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Contact List-->
+        <!--Contact-->
         <scene sceneID="RIi-gh-cWt">
             <objects>
                 <tableViewController id="jtf-PD-hgV" customClass="ContactListViewController" customModule="ContactList" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,9 +36,9 @@
                             <outlet property="delegate" destination="jtf-PD-hgV" id="nHF-8Z-Ggs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Contact List" id="Zpg-HP-DkL">
+                    <navigationItem key="navigationItem" title="Contact" id="Zpg-HP-DkL">
                         <barButtonItem key="backBarButtonItem" title=" " id="QMp-C2-149"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="b2m-46-vhk">
+                        <barButtonItem key="rightBarButtonItem" image="plus" id="b2m-46-vhk">
                             <connections>
                                 <segue destination="sn4-r3-PAC" kind="show" id="6bP-5O-rAt"/>
                             </connections>
@@ -52,7 +52,7 @@
             </objects>
             <point key="canvasLocation" x="1673.913043478261" y="598.66071428571422"/>
         </scene>
-        <!--View Contact's Details-->
+        <!--View Contact-->
         <scene sceneID="esA-gG-OiE">
             <objects>
                 <viewController id="d3q-K3-Z5B" customClass="ContactDetailViewController" customModule="ContactList" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,13 +61,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goh Pei Jin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfU-C8-bBI">
-                                <rect key="frame" x="20" y="190" width="136" height="34"/>
+                                <rect key="frame" x="20" y="138" width="136" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0123456789" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSY-88-fge">
-                                <rect key="frame" x="20" y="254" width="165" height="34"/>
+                                <rect key="frame" x="20" y="202" width="165" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <segue destination="BTo-hz-gVG" kind="unwind" unwindAction="unwindPageWithSegue:" id="v0E-a7-L0V"/>
+                                    <segue destination="BTo-hz-gVG" kind="unwind" unwindAction="unwindPageWithSegue:" id="o3T-7H-jK0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnO-Vu-34V">
@@ -87,8 +87,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Delete"/>
                                 <connections>
-                                    <action selector="deleteButtonPressed:" destination="d3q-K3-Z5B" eventType="touchUpInside" id="4ES-CJ-LfD"/>
-                                    <segue destination="BTo-hz-gVG" kind="unwind" unwindAction="unwindPageWithSegue:" id="Ne6-Ui-lmq"/>
+                                    <segue destination="m3K-ap-0X5" kind="show" identifier="deleteContactSegue" id="dbr-5K-D0S"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -101,7 +100,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q9G-jP-i77"/>
                     </view>
-                    <navigationItem key="navigationItem" title="View Contact's Details" id="xDb-Ne-e0L">
+                    <navigationItem key="navigationItem" title="View Contact" id="xDb-Ne-e0L">
+                        <barButtonItem key="backBarButtonItem" title=" " id="YJC-BR-bMm"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="kdc-EI-wJ5">
                             <connections>
                                 <segue destination="Alt-T3-hja" kind="show" identifier="editContactSegue" id="HaI-DM-nCd"/>
@@ -118,7 +118,138 @@
             </objects>
             <point key="canvasLocation" x="1673.913043478261" y="1344.6428571428571"/>
         </scene>
-        <!--Add Contact-->
+        <!--View Controller-->
+        <scene sceneID="mSN-Vp-5GU">
+            <objects>
+                <viewController id="m3K-ap-0X5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vya-ut-NQ7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8C-bG-F5I">
+                                <rect key="frame" x="43" y="338" width="328" height="274"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKl-MZ-GIW">
+                                        <rect key="frame" x="0.0" y="0.0" width="328" height="46"/>
+                                    </view>
+                                    <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vT8-Sp-Rrn">
+                                        <rect key="frame" x="0.0" y="47" width="328" height="227"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27s-iG-GTp">
+                                                <rect key="frame" x="20" y="113.5" width="288" height="31"/>
+                                                <color key="backgroundColor" red="1" green="0.072749883248658387" blue="0.1331747144986527" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                                <state key="normal" title="Delete">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="gIP-gg-vxd" kind="unwind" identifier="confirmDelete" unwindAction="unwindPageWithSegue:" id="6cL-xV-LdD"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Permanently delete this contact?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6I-dd-d04">
+                                                <rect key="frame" x="50" y="50" width="228" height="43.5"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bd-wa-1Eq">
+                                                <rect key="frame" x="20" y="154.5" width="288" height="31"/>
+                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="gIP-gg-vxd" kind="unwind" identifier="cancelDelete" unwindAction="unwindEditPageWithSegue:" id="coK-iQ-Lrf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="27s-iG-GTp" firstAttribute="leading" secondItem="vT8-Sp-Rrn" secondAttribute="leading" constant="20" id="0NB-3A-Ueu"/>
+                                            <constraint firstItem="27s-iG-GTp" firstAttribute="top" secondItem="m6I-dd-d04" secondAttribute="bottom" constant="20" id="1Cr-Aj-d6M"/>
+                                            <constraint firstItem="8bd-wa-1Eq" firstAttribute="top" secondItem="27s-iG-GTp" secondAttribute="bottom" constant="10" id="7m9-a1-neK"/>
+                                            <constraint firstItem="m6I-dd-d04" firstAttribute="top" secondItem="vT8-Sp-Rrn" secondAttribute="top" constant="50" id="9ys-pR-imc"/>
+                                            <constraint firstAttribute="trailing" secondItem="m6I-dd-d04" secondAttribute="trailing" constant="50" id="D5N-Uf-MP0"/>
+                                            <constraint firstAttribute="trailing" secondItem="8bd-wa-1Eq" secondAttribute="trailing" constant="20" id="FT6-Ah-6Gg"/>
+                                            <constraint firstItem="8bd-wa-1Eq" firstAttribute="leading" secondItem="vT8-Sp-Rrn" secondAttribute="leading" constant="20" id="H9x-WY-7Fn"/>
+                                            <constraint firstItem="m6I-dd-d04" firstAttribute="leading" secondItem="vT8-Sp-Rrn" secondAttribute="leading" constant="50" id="mkN-ov-of3"/>
+                                            <constraint firstAttribute="trailing" secondItem="27s-iG-GTp" secondAttribute="trailing" constant="20" id="snN-Gk-Qot"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancel" translatesAutoresizingMaskIntoConstraints="NO" id="EjK-4V-iSQ">
+                                        <rect key="frame" x="129" y="12" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="fBN-rc-kTR"/>
+                                            <constraint firstAttribute="height" constant="70" id="s11-2u-GyO"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="yKl-MZ-GIW" secondAttribute="trailing" id="6X6-6H-6ZR"/>
+                                    <constraint firstItem="yKl-MZ-GIW" firstAttribute="leading" secondItem="i8C-bG-F5I" secondAttribute="leading" id="BBF-3B-dRx"/>
+                                    <constraint firstItem="vT8-Sp-Rrn" firstAttribute="top" secondItem="yKl-MZ-GIW" secondAttribute="bottom" constant="1" id="LyW-Bd-ld9"/>
+                                    <constraint firstAttribute="trailing" secondItem="vT8-Sp-Rrn" secondAttribute="trailing" id="NCI-9Y-ASN"/>
+                                    <constraint firstItem="EjK-4V-iSQ" firstAttribute="centerX" secondItem="i8C-bG-F5I" secondAttribute="centerX" id="QEQ-Kp-FSR"/>
+                                    <constraint firstItem="vT8-Sp-Rrn" firstAttribute="leading" secondItem="i8C-bG-F5I" secondAttribute="leading" id="RVs-5N-eEx"/>
+                                    <constraint firstItem="yKl-MZ-GIW" firstAttribute="top" secondItem="i8C-bG-F5I" secondAttribute="top" id="flz-DD-DU7"/>
+                                    <constraint firstAttribute="bottom" secondItem="vT8-Sp-Rrn" secondAttribute="bottom" id="pdp-sv-pNT"/>
+                                    <constraint firstItem="vT8-Sp-Rrn" firstAttribute="top" secondItem="i8C-bG-F5I" secondAttribute="top" constant="47" id="rR7-I3-Da3"/>
+                                    <constraint firstItem="EjK-4V-iSQ" firstAttribute="top" secondItem="i8C-bG-F5I" secondAttribute="top" constant="12" id="sji-qa-3P9"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="i8C-bG-F5I" firstAttribute="leading" secondItem="uXw-Ho-7yd" secondAttribute="leading" constant="43" id="B2v-ra-X6k"/>
+                            <constraint firstItem="uXw-Ho-7yd" firstAttribute="bottom" secondItem="i8C-bG-F5I" secondAttribute="bottom" constant="250" id="eGm-L0-xD2"/>
+                            <constraint firstItem="uXw-Ho-7yd" firstAttribute="trailing" secondItem="i8C-bG-F5I" secondAttribute="trailing" constant="43" id="idh-pG-rX5"/>
+                            <constraint firstItem="i8C-bG-F5I" firstAttribute="top" secondItem="uXw-Ho-7yd" secondAttribute="top" constant="250" id="kph-Bk-wlG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uXw-Ho-7yd"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W7d-AO-Z26" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gIP-gg-vxd" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="763.768115942029" y="1344.6428571428571"/>
+        </scene>
+        <!--Add-->
         <scene sceneID="xXh-WM-mVq">
             <objects>
                 <viewController id="sn4-r3-PAC" customClass="AddContactViewController" customModule="ContactList" customModuleProvider="target" sceneMemberID="viewController">
@@ -127,19 +258,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m70-NE-bF4">
-                                <rect key="frame" x="20" y="160" width="374" height="30"/>
+                                <rect key="frame" x="20" y="108" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="xxx-xxxx xxx" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IEY-b0-h6R">
-                                <rect key="frame" x="20" y="200" width="374" height="30"/>
+                                <rect key="frame" x="20" y="148" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADd-gg-OMl">
-                                <rect key="frame" x="332" y="260" width="62" height="47"/>
+                                <rect key="frame" x="332" y="208" width="62" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <size key="titleShadowOffset" width="8" height="9"/>
                                 <state key="normal" title="Save"/>
@@ -148,7 +279,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WqZ-Zv-rrr">
-                                <rect key="frame" x="10" y="260" width="88" height="47"/>
+                                <rect key="frame" x="10" y="208" width="88" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <size key="titleShadowOffset" width="8" height="9"/>
                                 <state key="normal" title="Cancel"/>
@@ -172,7 +303,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jSc-0n-F4j"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Contact" id="UVp-1m-DeP"/>
+                    <navigationItem key="navigationItem" title="Add" id="UVp-1m-DeP"/>
                     <connections>
                         <outlet property="nameTextField" destination="m70-NE-bF4" id="Npi-Kf-5xF"/>
                         <outlet property="phoneNumberTextField" destination="IEY-b0-h6R" id="ji6-l5-zis"/>
@@ -188,9 +319,16 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PEB-Ih-urK" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="RjB-2P-jkz">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RjB-2P-jkz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="29"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -210,19 +348,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pel-Ds-iAx">
-                                <rect key="frame" x="20" y="160" width="374" height="30"/>
+                                <rect key="frame" x="20" y="108" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="xxx-xxxx xxx" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hbP-Ib-Udb">
-                                <rect key="frame" x="20" y="200" width="374" height="30"/>
+                                <rect key="frame" x="20" y="148" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oR6-It-DmT">
-                                <rect key="frame" x="332" y="260" width="62" height="47"/>
+                                <rect key="frame" x="332" y="208" width="62" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <size key="titleShadowOffset" width="8" height="9"/>
                                 <state key="normal" title="Save"/>
@@ -231,7 +369,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqo-rr-hDl">
-                                <rect key="frame" x="10" y="260" width="88" height="47"/>
+                                <rect key="frame" x="10" y="208" width="88" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <size key="titleShadowOffset" width="8" height="9"/>
                                 <state key="normal" title="Cancel"/>
@@ -267,4 +405,8 @@
             <point key="canvasLocation" x="2629" y="1345"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cancel" width="512" height="512"/>
+        <image name="plus" width="32" height="32"/>
+    </resources>
 </document>

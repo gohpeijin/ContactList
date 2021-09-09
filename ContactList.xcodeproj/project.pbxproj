@@ -13,6 +13,7 @@
 		031D911E26E939CE005BF76C /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D911D26E939CE005BF76C /* EditContactViewController.swift */; };
 		032E28C326E987D700381C1A /* Contact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032E28C126E987D700381C1A /* Contact+CoreDataClass.swift */; };
 		032E28C426E987D700381C1A /* Contact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032E28C226E987D700381C1A /* Contact+CoreDataProperties.swift */; };
+		032E28C626E9B55800381C1A /* DeleteContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032E28C526E9B55800381C1A /* DeleteContactViewController.swift */; };
 		03B1884726E8446B00B43E1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1884626E8446B00B43E1E /* AppDelegate.swift */; };
 		03B1884C26E8446B00B43E1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03B1884A26E8446B00B43E1E /* Main.storyboard */; };
 		03B1884F26E8446B00B43E1E /* ContactList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03B1884D26E8446B00B43E1E /* ContactList.xcdatamodeld */; };
@@ -29,6 +30,7 @@
 		031D911D26E939CE005BF76C /* EditContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
 		032E28C126E987D700381C1A /* Contact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataClass.swift"; sourceTree = "<group>"; };
 		032E28C226E987D700381C1A /* Contact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		032E28C526E9B55800381C1A /* DeleteContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteContactViewController.swift; sourceTree = "<group>"; };
 		03B1884326E8446B00B43E1E /* ContactList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03B1884626E8446B00B43E1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03B1884B26E8446B00B43E1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 			path = EditContact;
 			sourceTree = "<group>";
 		};
+		032E28C726E9B55F00381C1A /* DeleteContact */ = {
+			isa = PBXGroup;
+			children = (
+				032E28C526E9B55800381C1A /* DeleteContactViewController.swift */,
+			);
+			path = DeleteContact;
+			sourceTree = "<group>";
+		};
 		03B1883A26E8446B00B43E1E = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +122,7 @@
 				031D911B26E903C6005BF76C /* AddContact */,
 				031D911C26E903DA005BF76C /* ViewContactDetails */,
 				031D911F26E939D3005BF76C /* EditContact */,
+				032E28C726E9B55F00381C1A /* DeleteContact */,
 				03B1885226E8446C00B43E1E /* LaunchScreen.storyboard */,
 				03B1885526E8446C00B43E1E /* Info.plist */,
 				03B1884626E8446B00B43E1E /* AppDelegate.swift */,
@@ -194,6 +205,7 @@
 			files = (
 				03B1884F26E8446B00B43E1E /* ContactList.xcdatamodeld in Sources */,
 				03B1885E26E8464400B43E1E /* AddContactViewController.swift in Sources */,
+				032E28C626E9B55800381C1A /* DeleteContactViewController.swift in Sources */,
 				031D911E26E939CE005BF76C /* EditContactViewController.swift in Sources */,
 				032E28C326E987D700381C1A /* Contact+CoreDataClass.swift in Sources */,
 				031D911A26E903B4005BF76C /* ContactDetailViewController.swift in Sources */,

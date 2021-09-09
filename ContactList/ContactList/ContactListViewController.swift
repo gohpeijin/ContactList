@@ -95,14 +95,14 @@ class ContactListViewController: UITableViewController {
 //            contacts.append(contact)
             
         } else if let contactDetailVC = segue.source as? ContactDetailViewController{
-            guard let indexPath = contactListTableView.indexPathForSelectedRow else {return}
-            if contactDetailVC.isDelete{
-                delete(indexPath)
-//                contacts.remove(at: indexPath.row)
-            } else if contactDetailVC.isEdit{
+                guard let indexPath = contactListTableView.indexPathForSelectedRow else {return}
+                if contactDetailVC.isEdit{
                 contacts[indexPath.row] = contactDetailVC.contact
                 contactListTableView.reloadData()
             }
+        } else if segue.source is DeleteContactViewController{
+            guard let indexPath = contactListTableView.indexPathForSelectedRow else {return}
+            delete(indexPath)
         }
         contactListTableView.reloadData()
     }

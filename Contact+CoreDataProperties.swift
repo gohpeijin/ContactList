@@ -2,7 +2,7 @@
 //  Contact+CoreDataProperties.swift
 //  ContactList
 //
-//  Created by gohpeijin on 08/09/2021.
+//  Created by gohpeijin on 09/09/2021.
 //  Copyright © 2021 pj. All rights reserved.
 //
 //
@@ -20,5 +20,8 @@ extension Contact {
     @NSManaged public var name: String?
     @NSManaged public var notes: String?
     @NSManaged public var phoneNumber: String?
+    @NSManaged public var address: String?
+    @NSManaged public var occupation: String?
+    @NSManaged public var email: String?
 
 }

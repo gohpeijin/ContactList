@@ -20,7 +20,6 @@ class ContactListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         contactListTableView.register(ContactListTableViewCell.nib(), forCellReuseIdentifier: ContactListTableViewCell.identifier)
-
         fetch()
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -34,7 +33,7 @@ class ContactListViewController: UITableViewController {
         }
         appDelegate = delegate
         managedContext = appDelegate.persistentContainer.viewContext
-        let sort = NSSortDescriptor(key: "name", ascending: true)
+        let sort = NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
         let fetchrequest: NSFetchRequest<Contact> = Contact.fetchRequest()
         fetchrequest.sortDescriptors = [sort]
         do {
@@ -45,10 +44,15 @@ class ContactListViewController: UITableViewController {
         }
     }
 
-    func saveAdd(_ name: String, _ phoneNumber: String){
+    func saveAdd(_ name: String, _ phoneNumber: String, _ email: String, _ occupation: String, _ address: String, _ notes: String){
         let contact = NSEntityDescription.insertNewObject(forEntityName: "Contact", into:managedContext) as! Contact
         contact.name = name
         contact.phoneNumber = phoneNumber
+        contact.email = email
+        contact.occupation = occupation
+        contact.address = address
+        contact.notes = notes
+        
         do{
             try managedContext.save()
             self.contacts.append(contact)
@@ -57,13 +61,11 @@ class ContactListViewController: UITableViewController {
             print("Status: Error when saving the data")
             print(error)
         }
-
     }
 
     func delete(_ indexPath: IndexPath){
         do{
             managedContext.delete(contacts[indexPath.row])
-//            contacts.remove(at: indexPath.row)
             try managedContext.save()
             print("Status: The data is deleted")
         } catch let error as NSError{
@@ -95,7 +97,8 @@ class ContactListViewController: UITableViewController {
         if let addcontactVC = segue.source as? AddContactViewController{
             // make sure no empty context
             guard let name = addcontactVC.nameTextField.text, !addcontactVC.nameTextField.text!.isEmpty, let phoneNumber = addcontactVC.phoneNumberTextField.text, !addcontactVC.phoneNumberTextField.text!.isEmpty else {print("Lack Info"); return}
-            saveAdd(name, phoneNumber)
+            
+            saveAdd(name, phoneNumber, addcontactVC.emailTextField.text ?? "", addcontactVC.occupationTextField.text ?? "",addcontactVC.addressTextField.text ?? "", addcontactVC.additionalNotesTextField.text ?? "")
         } else if segue.source is DeleteContactViewController{
             guard let indexPath = contactListTableView.indexPathForSelectedRow else {return}
             delete(indexPath)

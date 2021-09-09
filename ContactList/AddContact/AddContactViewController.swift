@@ -10,6 +10,7 @@ import UIKit
 
 class AddContactViewController: UIViewController, UITextFieldDelegate {
     
+    
     @IBOutlet weak var singleScrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     
@@ -20,6 +21,8 @@ class AddContactViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var additionalNotesTextField: UITextField!
     
+    @IBOutlet weak var saveContactButton: UIButton!
+    
     let DEFAULTSTATE = 0, EMPTYSTRING = 1
    
     var name = false, phone = false
@@ -29,8 +32,7 @@ class AddContactViewController: UIViewController, UITextFieldDelegate {
         singleScrollView.contentSize = contentView.frame.size
         singleScrollView.backgroundColor = UIColor.clear
         someUIchores()
-        nameTextField.delegate = self
-        phoneNumberTextField.delegate = self
+        assigntag()
 
         nameTextField.becomeFirstResponder()
     }
@@ -40,11 +42,29 @@ class AddContactViewController: UIViewController, UITextFieldDelegate {
     }
     func someUIchores(){
         addUnderlineLinetoTextField(nameTextField)
-        addUnderlineLinetoTextField(emailTextField)
         addUnderlineLinetoTextField(phoneNumberTextField)
+        addUnderlineLinetoTextField(emailTextField)
         addUnderlineLinetoTextField(occupationTextField)
         addUnderlineLinetoTextField(addressTextField)
         addUnderlineLinetoTextField(additionalNotesTextField)
+        
+        saveContactButton.layer.borderColor = UIColor.init(red: 13/255, green: 174/255, blue: 156/255, alpha: 1).cgColor
+    }
+    
+    func assigntag(){
+        nameTextField.delegate = self
+        phoneNumberTextField.delegate = self
+        emailTextField.delegate = self
+        occupationTextField.delegate = self
+        addressTextField.delegate = self
+        additionalNotesTextField.delegate = self
+        
+        nameTextField.tag = 0
+        phoneNumberTextField.tag = 1
+        emailTextField.tag = 2
+        occupationTextField.tag = 3
+        addressTextField.tag = 4
+        additionalNotesTextField.tag = 5
     }
     // UI design draw the text field with no border but a line
     func chgUnderlineColor(_ textFieldbyUser: UITextField!,_ color: CGColor){
@@ -81,6 +101,16 @@ class AddContactViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = self.view.viewWithTag(textField.tag + 1) as? UITextField{
+
+            nextField.becomeFirstResponder()
+        }else {
+            textField.resignFirstResponder()
+        }
+        return false
+    }
+    
     @IBAction func saveContactPressed(_ sender: UIButton) {
         if(nameTextField.text!.trimmingCharacters(in: .whitespaces).isEmpty){
             print("name empty")
@@ -92,7 +122,14 @@ class AddContactViewController: UIViewController, UITextFieldDelegate {
         } else {phone = true}
         
         if (name && phone){
-            performSegue(withIdentifier: "unwindAfterAdding", sender: self)
+//            contactadded.name = nameTextField.text!
+//            contactadded.phoneNumber = phoneNumberTextField.text!
+//            contactadded.email = emailTextField.text!
+//            contactadded.occupation = occupationTextField.text!
+//            contactadded.address = addressTextField.text!
+//            contactadded.notes = additionalNotesTextField.text!
+            
+            self.performSegue(withIdentifier: "unwindAfterAdding", sender: self)
         }
         
     }

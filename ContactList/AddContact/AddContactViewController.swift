@@ -37,6 +37,28 @@ class AddContactViewController: UIViewController, UITextFieldDelegate {
         nameTextField.becomeFirstResponder()
     }
     
+    @IBAction func saveContactPressed(_ sender: UIButton) {
+        if(nameTextField.text!.trimmingCharacters(in: .whitespaces).isEmpty){
+            print("name empty")
+            setBottomLine_label_color(EMPTYSTRING,nameTextField)
+        } else {name = true}
+        if(phoneNumberTextField.text!.trimmingCharacters(in: .whitespaces).isEmpty){
+            print("phone empty")
+            setBottomLine_label_color(EMPTYSTRING,phoneNumberTextField)
+        } else {phone = true}
+        
+        if (name && phone){
+            self.performSegue(withIdentifier: "unwindAfterAdding", sender: self)
+        }
+        
+    }
+    
+    @IBAction func cancel(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+
+    //// chores
     override func viewDidAppear(_ animated: Bool) {
         someUIchores()
     }
@@ -66,6 +88,7 @@ class AddContactViewController: UIViewController, UITextFieldDelegate {
         addressTextField.tag = 4
         additionalNotesTextField.tag = 5
     }
+    
     // UI design draw the text field with no border but a line
     func chgUnderlineColor(_ textFieldbyUser: UITextField!,_ color: CGColor){
         let bottomLine = CALayer()
@@ -91,6 +114,7 @@ class AddContactViewController: UIViewController, UITextFieldDelegate {
         }
         chgUnderlineColor(textFieldbyUser, color)
     }
+    
     func textField(_ textField: UITextField,shouldChangeCharactersIn range: NSRange,replacementString string: String) -> Bool{
         // change back to grey color when user typing
         if textField == nameTextField{
@@ -103,37 +127,11 @@ class AddContactViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextField = self.view.viewWithTag(textField.tag + 1) as? UITextField{
-
             nextField.becomeFirstResponder()
         }else {
             textField.resignFirstResponder()
         }
         return false
     }
-    
-    @IBAction func saveContactPressed(_ sender: UIButton) {
-        if(nameTextField.text!.trimmingCharacters(in: .whitespaces).isEmpty){
-            print("name empty")
-            setBottomLine_label_color(EMPTYSTRING,nameTextField)
-        } else {name = true}
-        if(phoneNumberTextField.text!.trimmingCharacters(in: .whitespaces).isEmpty){
-            print("phone empty")
-            setBottomLine_label_color(EMPTYSTRING,phoneNumberTextField)
-        } else {phone = true}
-        
-        if (name && phone){
-//            contactadded.name = nameTextField.text!
-//            contactadded.phoneNumber = phoneNumberTextField.text!
-//            contactadded.email = emailTextField.text!
-//            contactadded.occupation = occupationTextField.text!
-//            contactadded.address = addressTextField.text!
-//            contactadded.notes = additionalNotesTextField.text!
-            
-            self.performSegue(withIdentifier: "unwindAfterAdding", sender: self)
-        }
-        
-    }
-    @IBAction func cancel(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
+
 }

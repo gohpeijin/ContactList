@@ -32,6 +32,7 @@ class ContactDetailViewController: UIViewController {
     
     func UIchores(){
         scrollView.contentSize = contentView.frame.size
+        
         buttonDone.layer.borderColor = UIColor.init(red: 13/255, green: 174/255, blue: 156/255, alpha: 1).cgColor
     }
     

@@ -11,8 +11,9 @@ import UIKit
 class ContactDetailViewController: UIViewController {
 
     var contact: Contact!
-    var isDelete: Bool = false
     var isEdit: Bool = false
+    var indexToEdit: Int!
+    
     @IBOutlet weak var labelPhoneNumber: UILabel!
     @IBOutlet weak var labelContactName: UILabel!
     override func viewDidLoad() {
@@ -24,12 +25,8 @@ class ContactDetailViewController: UIViewController {
         labelContactName.text = contact?.name
         labelPhoneNumber.text = contact?.phoneNumber
     }
-//
-//    @IBAction func deleteButtonPressed(_ sender: UIButton) {
-//        isDelete = true
-//    }
     
-    @IBAction func unwindEditPage(segue: UIStoryboardSegue){
+    @IBAction func unwindToViewContact(segue: UIStoryboardSegue){
        guard let editContactVC = segue.source as? EditContactViewController else {return}
         let name = editContactVC.nameTextField.text!.isEmpty  ? contact?.name: editContactVC.nameTextField.text
         let phoneNumber = editContactVC.phoneNumberTextField.text!.isEmpty  ? contact?.name: editContactVC.phoneNumberTextField.text

@@ -19,8 +19,7 @@ class ContactListViewController: UITableViewController {
     @IBOutlet var contactListTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-         contactListTableView.register(ContactListTableViewCell.nib(), forCellReuseIdentifier: ContactListTableViewCell.identifier)
+        contactListTableView.register(ContactListTableViewCell.nib(), forCellReuseIdentifier: ContactListTableViewCell.identifier)
 
         fetch()
     }
@@ -32,9 +31,12 @@ class ContactListViewController: UITableViewController {
         }
         appDelegate = delegate
         managedContext = appDelegate.persistentContainer.viewContext
+        let sort = NSSortDescriptor(key: "name", ascending: true)
         let fetchrequest: NSFetchRequest<Contact> = Contact.fetchRequest()
+        fetchrequest.sortDescriptors = [sort]
         do {
             contacts = try managedContext.fetch(fetchrequest)
+            contactListTableView.reloadData()
         } catch let error as NSError{
             print(error)
         }
@@ -57,8 +59,9 @@ class ContactListViewController: UITableViewController {
 
     func delete(_ indexPath: IndexPath){
         do{
-            try managedContext.delete(contacts[indexPath.row])
-            contacts.remove(at: indexPath.row)
+            managedContext.delete(contacts[indexPath.row])
+//            contacts.remove(at: indexPath.row)
+            try managedContext.save()
             print("Status: The data is deleted")
         } catch let error as NSError{
             print("Status: Error when deleting the data")
@@ -74,7 +77,6 @@ class ContactListViewController: UITableViewController {
         return contacts.count
     }
 
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ContactListTableViewCell.identifier, for: indexPath) as! ContactListTableViewCell
         let contact = contacts[indexPath.row]
@@ -86,13 +88,11 @@ class ContactListViewController: UITableViewController {
         self.performSegue(withIdentifier: "viewContactDetailSegue", sender: nil)
     }
 
-    @IBAction func unwindPage(segue: UIStoryboardSegue){
+    @IBAction func unwindToTableView(segue: UIStoryboardSegue){
         if let addcontactVC = segue.source as? AddContactViewController{
             // make sure no empty context
             guard let name = addcontactVC.nameTextField.text, !addcontactVC.nameTextField.text!.isEmpty, let phoneNumber = addcontactVC.phoneNumberTextField.text, !addcontactVC.phoneNumberTextField.text!.isEmpty else {print("Lack Info"); return}
             saveAdd(name, phoneNumber)
-//            let contact = ContactClass(name: name, phoneNumber: phoneNumber)
-//            contacts.append(contact)
             
         } else if let contactDetailVC = segue.source as? ContactDetailViewController{
                 guard let indexPath = contactListTableView.indexPathForSelectedRow else {return}
@@ -103,8 +103,18 @@ class ContactListViewController: UITableViewController {
         } else if segue.source is DeleteContactViewController{
             guard let indexPath = contactListTableView.indexPathForSelectedRow else {return}
             delete(indexPath)
+        }else if segue.source is EditContactViewController{
+           print("yes able to come first page")
+            let contactDetailVC = (self.storyboard?.instantiateViewController(withIdentifier: "ContactDetailViewController") as? ContactDetailViewController)!
+    
+            self.navigationController?.pushViewController(contactDetailVC, animated: true)
+//             guard let contactDetailVC = segue.destination as? ContactDetailViewController else {return}
+//            print(contactDetailVC)
+//            print("........")
+//        navigationController?.pushViewController(contactDetailVC, animated: true)
+//            print(contactDetailVC)
         }
-        contactListTableView.reloadData()
+        fetch()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

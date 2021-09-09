@@ -55,7 +55,7 @@
         <!--View Contact-->
         <scene sceneID="esA-gG-OiE">
             <objects>
-                <viewController id="d3q-K3-Z5B" customClass="ContactDetailViewController" customModule="ContactList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactDetailViewController" id="d3q-K3-Z5B" customClass="ContactDetailViewController" customModule="ContactList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QAS-ad-l8J">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,7 +78,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <segue destination="BTo-hz-gVG" kind="unwind" unwindAction="unwindPageWithSegue:" id="o3T-7H-jK0"/>
+                                    <segue destination="BTo-hz-gVG" kind="unwind" unwindAction="unwindToTableViewWithSegue:" id="O8a-GK-nZ8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnO-Vu-34V">
@@ -87,7 +87,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Delete"/>
                                 <connections>
-                                    <segue destination="m3K-ap-0X5" kind="show" identifier="deleteContactSegue" id="dbr-5K-D0S"/>
+                                    <segue destination="m3K-ap-0X5" kind="show" id="kaA-Ne-M4b"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -118,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="1673.913043478261" y="1344.6428571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--Delete Contact View Controller-->
         <scene sceneID="mSN-Vp-5GU">
             <objects>
-                <viewController id="m3K-ap-0X5" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="m3K-ap-0X5" customClass="DeleteContactViewController" customModule="ContactList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vya-ut-NQ7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,6 +131,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKl-MZ-GIW">
                                         <rect key="frame" x="0.0" y="0.0" width="328" height="46"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vT8-Sp-Rrn">
                                         <rect key="frame" x="0.0" y="47" width="328" height="227"/>
@@ -152,7 +153,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="gIP-gg-vxd" kind="unwind" identifier="confirmDelete" unwindAction="unwindPageWithSegue:" id="6cL-xV-LdD"/>
+                                                    <segue destination="gIP-gg-vxd" kind="unwind" unwindAction="unwindToTableViewWithSegue:" id="wNC-b8-Wsz"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Permanently delete this contact?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6I-dd-d04">
@@ -178,10 +179,11 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="gIP-gg-vxd" kind="unwind" identifier="cancelDelete" unwindAction="unwindEditPageWithSegue:" id="coK-iQ-Lrf"/>
+                                                    <segue destination="gIP-gg-vxd" kind="unwind" unwindAction="unwindToViewContactWithSegue:" id="rH4-OK-Lcy"/>
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="27s-iG-GTp" firstAttribute="leading" secondItem="vT8-Sp-Rrn" secondAttribute="leading" constant="20" id="0NB-3A-Ueu"/>
                                             <constraint firstItem="27s-iG-GTp" firstAttribute="top" secondItem="m6I-dd-d04" secondAttribute="bottom" constant="20" id="1Cr-Aj-d6M"/>
@@ -208,6 +210,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="yKl-MZ-GIW" secondAttribute="trailing" id="6X6-6H-6ZR"/>
                                     <constraint firstItem="yKl-MZ-GIW" firstAttribute="leading" secondItem="i8C-bG-F5I" secondAttribute="leading" id="BBF-3B-dRx"/>
@@ -234,7 +237,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="i8C-bG-F5I" firstAttribute="leading" secondItem="uXw-Ho-7yd" secondAttribute="leading" constant="43" id="B2v-ra-X6k"/>
                             <constraint firstItem="uXw-Ho-7yd" firstAttribute="bottom" secondItem="i8C-bG-F5I" secondAttribute="bottom" constant="250" id="eGm-L0-xD2"/>
@@ -257,49 +260,139 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m70-NE-bF4">
-                                <rect key="frame" x="20" y="108" width="374" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="xxx-xxxx xxx" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IEY-b0-h6R">
-                                <rect key="frame" x="20" y="148" width="374" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADd-gg-OMl">
-                                <rect key="frame" x="332" y="208" width="62" height="47"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <size key="titleShadowOffset" width="8" height="9"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <segue destination="Mzr-fT-56J" kind="unwind" unwindAction="unwindPageWithSegue:" id="yB3-ON-zb5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WqZ-Zv-rrr">
-                                <rect key="frame" x="10" y="208" width="88" height="47"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <size key="titleShadowOffset" width="8" height="9"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancel:" destination="sn4-r3-PAC" eventType="touchUpInside" id="8Oo-6z-jkI"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1C-9L-D7h">
+                                <rect key="frame" x="0.0" y="108" width="414" height="674"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5n5-Sb-eHo">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
+                                        <color key="backgroundColor" red="0.99910014869999997" green="0.78051262850000003" blue="0.4656158111" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvm-nd-VFS">
+                                        <rect key="frame" x="0.0" y="70" width="414" height="604"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m70-NE-bF4">
+                                                <rect key="frame" x="10" y="70" width="394" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="xxx-xxxx xxx" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IEY-b0-h6R">
+                                                <rect key="frame" x="10" y="110" width="394" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="IEY-b0-h6R" secondAttribute="trailing" constant="10" id="2RJ-DR-6fn"/>
+                                            <constraint firstItem="IEY-b0-h6R" firstAttribute="leading" secondItem="Jvm-nd-VFS" secondAttribute="leading" constant="10" id="FMr-yn-aBa"/>
+                                            <constraint firstAttribute="trailing" secondItem="IEY-b0-h6R" secondAttribute="trailing" constant="10" id="ZMB-Kg-aUw"/>
+                                            <constraint firstItem="IEY-b0-h6R" firstAttribute="top" secondItem="m70-NE-bF4" secondAttribute="bottom" constant="10" id="eLU-j0-t39"/>
+                                            <constraint firstItem="IEY-b0-h6R" firstAttribute="leading" secondItem="Jvm-nd-VFS" secondAttribute="leading" constant="10" id="p69-PP-Tlc"/>
+                                            <constraint firstAttribute="trailing" secondItem="m70-NE-bF4" secondAttribute="trailing" constant="10" id="rB7-93-KFc"/>
+                                            <constraint firstItem="m70-NE-bF4" firstAttribute="leading" secondItem="Jvm-nd-VFS" secondAttribute="leading" constant="10" id="tnj-TT-OEr"/>
+                                            <constraint firstItem="m70-NE-bF4" firstAttribute="top" secondItem="Jvm-nd-VFS" secondAttribute="top" constant="70" id="uKj-5J-LxV"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="Rq7-HO-rKM">
+                                        <rect key="frame" x="162" y="12" width="90" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="Kxv-E3-SHa"/>
+                                            <constraint firstAttribute="width" constant="90" id="fVd-hC-LH1"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="5n5-Sb-eHo" secondAttribute="trailing" id="9fg-A3-dMu"/>
+                                    <constraint firstItem="5n5-Sb-eHo" firstAttribute="top" secondItem="a1C-9L-D7h" secondAttribute="top" id="Cnk-Qp-JUh"/>
+                                    <constraint firstItem="Jvm-nd-VFS" firstAttribute="top" secondItem="a1C-9L-D7h" secondAttribute="top" constant="70" id="Z04-8Z-Av7"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jvm-nd-VFS" secondAttribute="bottom" id="cCD-Yc-ru1"/>
+                                    <constraint firstItem="Rq7-HO-rKM" firstAttribute="top" secondItem="a1C-9L-D7h" secondAttribute="top" constant="12" id="p15-ju-f6d"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jvm-nd-VFS" secondAttribute="trailing" id="q8b-DD-T1I"/>
+                                    <constraint firstItem="Rq7-HO-rKM" firstAttribute="centerX" secondItem="a1C-9L-D7h" secondAttribute="centerX" id="reK-c8-mSC"/>
+                                    <constraint firstItem="5n5-Sb-eHo" firstAttribute="leading" secondItem="a1C-9L-D7h" secondAttribute="leading" id="t59-AM-2G4"/>
+                                    <constraint firstItem="Jvm-nd-VFS" firstAttribute="leading" secondItem="a1C-9L-D7h" secondAttribute="leading" id="xxt-5u-gAo"/>
+                                    <constraint firstItem="Jvm-nd-VFS" firstAttribute="top" secondItem="5n5-Sb-eHo" secondAttribute="bottom" constant="1" id="ybW-YL-yPu"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wfL-Aa-nW7">
+                                <rect key="frame" x="0.0" y="782" width="414" height="80"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jk9-Bl-fIX">
+                                        <rect key="frame" x="0.0" y="0.0" width="202" height="80"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WqZ-Zv-rrr">
+                                                <rect key="frame" x="57" y="16.5" width="88" height="47"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                                <size key="titleShadowOffset" width="8" height="9"/>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancel:" destination="sn4-r3-PAC" eventType="touchUpInside" id="8Oo-6z-jkI"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.99910014869999997" green="0.78051262850000003" blue="0.4656158111" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="FGR-GN-yuv"/>
+                                            <constraint firstItem="WqZ-Zv-rrr" firstAttribute="centerY" secondItem="Jk9-Bl-fIX" secondAttribute="centerY" id="u6v-vv-xyN"/>
+                                            <constraint firstItem="WqZ-Zv-rrr" firstAttribute="centerX" secondItem="Jk9-Bl-fIX" secondAttribute="centerX" id="wHx-10-r7d"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXK-G8-LFy">
+                                        <rect key="frame" x="212" y="0.0" width="202" height="80"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADd-gg-OMl">
+                                                <rect key="frame" x="70" y="16.5" width="62" height="47"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                                <size key="titleShadowOffset" width="8" height="9"/>
+                                                <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <segue destination="Mzr-fT-56J" kind="unwind" unwindAction="unwindToTableViewWithSegue:" id="tb1-DP-WQv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.99910014869999997" green="0.78051262850000003" blue="0.4656158111" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="ADd-gg-OMl" firstAttribute="centerX" secondItem="lXK-G8-LFy" secondAttribute="centerX" id="2f7-cy-OBR"/>
+                                            <constraint firstAttribute="height" constant="80" id="WDy-yz-Rvi"/>
+                                            <constraint firstItem="ADd-gg-OMl" firstAttribute="centerY" secondItem="lXK-G8-LFy" secondAttribute="centerY" id="bk2-Bj-a5t"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="NZW-PU-bsV"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="WqZ-Zv-rrr" firstAttribute="top" secondItem="IEY-b0-h6R" secondAttribute="bottom" constant="30" id="9AQ-b6-bJz"/>
-                            <constraint firstItem="jSc-0n-F4j" firstAttribute="trailing" secondItem="ADd-gg-OMl" secondAttribute="trailing" constant="20" id="GkJ-G8-1Xe"/>
-                            <constraint firstItem="IEY-b0-h6R" firstAttribute="top" secondItem="m70-NE-bF4" secondAttribute="bottom" constant="10" id="Irb-Dy-c4u"/>
-                            <constraint firstItem="jSc-0n-F4j" firstAttribute="trailing" secondItem="m70-NE-bF4" secondAttribute="trailing" constant="20" id="Rfa-Ht-woD"/>
-                            <constraint firstItem="ADd-gg-OMl" firstAttribute="top" secondItem="IEY-b0-h6R" secondAttribute="bottom" constant="30" id="XXm-nK-SUJ"/>
-                            <constraint firstItem="m70-NE-bF4" firstAttribute="top" secondItem="jSc-0n-F4j" secondAttribute="top" constant="20" id="b4z-2W-LNo"/>
-                            <constraint firstItem="m70-NE-bF4" firstAttribute="leading" secondItem="jSc-0n-F4j" secondAttribute="leading" constant="20" id="mOz-kF-1wk"/>
-                            <constraint firstItem="IEY-b0-h6R" firstAttribute="leading" secondItem="jSc-0n-F4j" secondAttribute="leading" constant="20" id="qrH-7e-e3B"/>
-                            <constraint firstItem="WqZ-Zv-rrr" firstAttribute="leading" secondItem="jSc-0n-F4j" secondAttribute="leading" constant="10" id="w7c-lN-XLl"/>
-                            <constraint firstItem="jSc-0n-F4j" firstAttribute="trailing" secondItem="IEY-b0-h6R" secondAttribute="trailing" constant="20" id="xVn-Q9-1cd"/>
+                            <constraint firstItem="jSc-0n-F4j" firstAttribute="trailing" secondItem="a1C-9L-D7h" secondAttribute="trailing" id="6DJ-Pw-Txi"/>
+                            <constraint firstItem="jSc-0n-F4j" firstAttribute="bottom" secondItem="wfL-Aa-nW7" secondAttribute="bottom" id="L2X-9t-LHw"/>
+                            <constraint firstItem="a1C-9L-D7h" firstAttribute="top" secondItem="jSc-0n-F4j" secondAttribute="top" constant="20" id="VE9-fF-fro"/>
+                            <constraint firstItem="wfL-Aa-nW7" firstAttribute="leading" secondItem="jSc-0n-F4j" secondAttribute="leading" id="bkk-6J-FR6"/>
+                            <constraint firstItem="a1C-9L-D7h" firstAttribute="leading" secondItem="3BU-4F-QLv" secondAttribute="leading" id="i9w-Sb-1lp"/>
+                            <constraint firstItem="jSc-0n-F4j" firstAttribute="trailing" secondItem="wfL-Aa-nW7" secondAttribute="trailing" id="u0k-fF-dyl"/>
+                            <constraint firstItem="wfL-Aa-nW7" firstAttribute="top" secondItem="a1C-9L-D7h" secondAttribute="bottom" id="ytg-Qn-o3u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jSc-0n-F4j"/>
                     </view>
@@ -312,7 +405,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XEo-ZB-gs7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Mzr-fT-56J" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2652" y="599"/>
+            <point key="canvasLocation" x="2650.7246376811595" y="598.66071428571422"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sk9-fj-QXl">
@@ -365,7 +458,8 @@
                                 <size key="titleShadowOffset" width="8" height="9"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
-                                    <segue destination="1AO-xo-CII" kind="unwind" unwindAction="unwindEditPageWithSegue:" id="fcu-Uv-wrB"/>
+                                    <action selector="saveEditPressed:" destination="Alt-T3-hja" eventType="touchUpInside" id="MTY-mt-qsq"/>
+                                    <segue destination="1AO-xo-CII" kind="unwind" unwindAction="unwindToViewContactWithSegue:" id="IoZ-v5-evf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqo-rr-hDl">
@@ -375,6 +469,14 @@
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancel:" destination="Alt-T3-hja" eventType="touchUpInside" id="xKW-2a-WzD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H77-ap-ErF">
+                                <rect key="frame" x="172" y="306" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="1AO-xo-CII" kind="unwind" unwindAction="unwindToTableViewWithSegue:" id="7UZ-r6-ihv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -408,5 +510,6 @@
     <resources>
         <image name="cancel" width="512" height="512"/>
         <image name="plus" width="32" height="32"/>
+        <image name="user" width="512" height="512"/>
     </resources>
 </document>

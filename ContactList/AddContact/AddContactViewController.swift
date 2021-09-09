@@ -10,23 +10,17 @@ import UIKit
 
 class AddContactViewController: UIViewController {
 
+    @IBOutlet weak var singleScrollView: UIScrollView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     
+    @IBOutlet weak var contentView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+         singleScrollView.contentSize = contentView.frame.size
     }
     
     @IBAction func cancel(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
-//        performSegue(withIdentifier: "unwindAfterAdding", sender: self)
     }
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destination.
-//        // Pass the selected object to the new view controller.
-//    }
-
-
 }

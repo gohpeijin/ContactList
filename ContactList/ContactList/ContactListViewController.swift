@@ -24,7 +24,6 @@ class ContactListViewController: UITableViewController {
         fetch()
     }
     override func viewDidAppear(_ animated: Bool) {
-        print("hahhahahhaa")
         fetch()
     }
     

@@ -10,7 +10,7 @@ import UIKit
 
 class ContactDetailViewController: UIViewController {
 
-    var contact: ContactClass!
+    var contact: Contact!
     var isDelete: Bool = false
     var isEdit: Bool = false
     @IBOutlet weak var labelPhoneNumber: UILabel!

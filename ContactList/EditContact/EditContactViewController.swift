@@ -10,7 +10,7 @@ import UIKit
 
 class EditContactViewController: UIViewController {
     
-    var contact: ContactClass!
+    var contact: Contact!
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!

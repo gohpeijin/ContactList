@@ -87,7 +87,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Delete"/>
                                 <connections>
-                                    <segue destination="m3K-ap-0X5" kind="show" id="kaA-Ne-M4b"/>
+                                    <segue destination="m3K-ap-0X5" kind="show" identifier="deleteContactSegue" id="kaA-Ne-M4b"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -469,14 +469,6 @@
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancel:" destination="Alt-T3-hja" eventType="touchUpInside" id="xKW-2a-WzD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H77-ap-ErF">
-                                <rect key="frame" x="172" y="306" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="1AO-xo-CII" kind="unwind" unwindAction="unwindToTableViewWithSegue:" id="7UZ-r6-ihv"/>
                                 </connections>
                             </button>
                         </subviews>

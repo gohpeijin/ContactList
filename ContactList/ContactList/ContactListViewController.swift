@@ -23,6 +23,10 @@ class ContactListViewController: UITableViewController {
 
         fetch()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        print("hahhahahhaa")
+        fetch()
+    }
     
     func fetch(){
         guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -93,28 +97,10 @@ class ContactListViewController: UITableViewController {
             // make sure no empty context
             guard let name = addcontactVC.nameTextField.text, !addcontactVC.nameTextField.text!.isEmpty, let phoneNumber = addcontactVC.phoneNumberTextField.text, !addcontactVC.phoneNumberTextField.text!.isEmpty else {print("Lack Info"); return}
             saveAdd(name, phoneNumber)
-            
-        } else if let contactDetailVC = segue.source as? ContactDetailViewController{
-                guard let indexPath = contactListTableView.indexPathForSelectedRow else {return}
-                if contactDetailVC.isEdit{
-                contacts[indexPath.row] = contactDetailVC.contact
-                contactListTableView.reloadData()
-            }
         } else if segue.source is DeleteContactViewController{
             guard let indexPath = contactListTableView.indexPathForSelectedRow else {return}
             delete(indexPath)
-        }else if segue.source is EditContactViewController{
-           print("yes able to come first page")
-            let contactDetailVC = (self.storyboard?.instantiateViewController(withIdentifier: "ContactDetailViewController") as? ContactDetailViewController)!
-    
-            self.navigationController?.pushViewController(contactDetailVC, animated: true)
-//             guard let contactDetailVC = segue.destination as? ContactDetailViewController else {return}
-//            print(contactDetailVC)
-//            print("........")
-//        navigationController?.pushViewController(contactDetailVC, animated: true)
-//            print(contactDetailVC)
         }
-        fetch()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -124,6 +110,7 @@ class ContactListViewController: UITableViewController {
             let contact = contacts[indexPath.row]
             
             contactDetailVC.contact = contact
+            
             
         }
     }

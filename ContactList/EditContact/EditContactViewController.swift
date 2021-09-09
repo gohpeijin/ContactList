@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 
 class EditContactViewController: UIViewController {
-    var contacts: [Contact]  = []
     var contactedit: Contact!
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -26,7 +25,6 @@ class EditContactViewController: UIViewController {
             nameTextField.text =  contact.name
             phoneNumberTextField.text = contact.phoneNumber
         }
-        
         fetch()
     }
     
@@ -37,17 +35,21 @@ class EditContactViewController: UIViewController {
         }
         appDelegate = delegate
         managedContext = appDelegate.persistentContainer.viewContext
-        let sort = NSSortDescriptor(key: "name", ascending: true)
-        let fetchrequest: NSFetchRequest<Contact> = Contact.fetchRequest()
-        fetchrequest.sortDescriptors = [sort]
-        do {
-            contacts = try managedContext.fetch(fetchrequest)
-        } catch let error as NSError{
+    }
+
+    func edit(){
+        do{
+            contactedit.name = nameTextField.text
+            contactedit.phoneNumber = phoneNumberTextField.text
+            try managedContext.save()
+        }catch let error as NSError{
+            print("Status: Error when updating the data")
             print(error)
         }
     }
     
     @IBAction func saveEditPressed(_ sender: UIButton) {
+        edit()
     }
     @IBAction func cancel(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)

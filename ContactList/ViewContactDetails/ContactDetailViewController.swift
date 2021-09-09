@@ -12,7 +12,6 @@ class ContactDetailViewController: UIViewController {
 
     var contact: Contact!
     var isEdit: Bool = false
-    var indexToEdit: Int!
     
     @IBOutlet weak var labelPhoneNumber: UILabel!
     @IBOutlet weak var labelContactName: UILabel!

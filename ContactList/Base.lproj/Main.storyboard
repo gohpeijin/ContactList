@@ -126,7 +126,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfn-HO-vBr">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="722.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="741"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="llW-Bo-khp">
                                                         <rect key="frame" x="20" y="30" width="374" height="275"/>
@@ -225,7 +225,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCa-Bd-ycU">
-                                                        <rect key="frame" x="20" y="330" width="374" height="392.5"/>
+                                                        <rect key="frame" x="20" y="330" width="374" height="411"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L03-7P-kHK">
                                                                 <rect key="frame" x="20" y="20" width="334" height="73.5"/>
@@ -328,7 +328,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Vv-ya-98a">
-                                                                <rect key="frame" x="20" y="289" width="334" height="73.5"/>
+                                                                <rect key="frame" x="20" y="289" width="334" height="92"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note" translatesAutoresizingMaskIntoConstraints="NO" id="g7e-fg-9yB">
                                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -343,8 +343,8 @@
                                                                         <color key="textColor" red="0.45227236679999999" green="0.45227236679999999" blue="0.45227236679999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meet at utar" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftj-ez-ZTz">
-                                                                        <rect key="frame" x="5" y="45" width="93.5" height="18.5"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meet at utar first day second day thirt forth fifth 12345678" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftj-ez-ZTz">
+                                                                        <rect key="frame" x="5" y="45" width="324" height="37"/>
                                                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                                                         <color key="textColor" red="0.1960602105" green="0.1960886419" blue="0.1960505545" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -354,6 +354,7 @@
                                                                     <constraint firstItem="g7e-fg-9yB" firstAttribute="leading" secondItem="2Vv-ya-98a" secondAttribute="leading" id="9zv-b7-afl"/>
                                                                     <constraint firstAttribute="bottom" secondItem="ftj-ez-ZTz" secondAttribute="bottom" constant="10" id="FJa-cE-eaS"/>
                                                                     <constraint firstItem="SH0-ej-XC6" firstAttribute="leading" secondItem="g7e-fg-9yB" secondAttribute="trailing" constant="10" id="b6Z-Cz-Jk0"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="ftj-ez-ZTz" secondAttribute="trailing" constant="5" id="dQn-ad-fbB"/>
                                                                     <constraint firstItem="ftj-ez-ZTz" firstAttribute="top" secondItem="g7e-fg-9yB" secondAttribute="bottom" constant="5" id="kEg-Wz-lef"/>
                                                                     <constraint firstItem="g7e-fg-9yB" firstAttribute="top" secondItem="2Vv-ya-98a" secondAttribute="top" id="ob4-nm-OwY"/>
                                                                     <constraint firstItem="SH0-ej-XC6" firstAttribute="top" secondItem="2Vv-ya-98a" secondAttribute="top" constant="11" id="wtO-Qc-2LC"/>

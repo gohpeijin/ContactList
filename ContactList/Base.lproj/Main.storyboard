@@ -1725,7 +1725,7 @@
                                                     <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="1AO-xo-CII" kind="unwind" unwindAction="unwindToViewContactWithSegue:" id="Kk8-Qb-Mf0"/>
+                                                    <action selector="cancel:" destination="Alt-T3-hja" eventType="touchUpInside" id="gQF-OP-XZX"/>
                                                 </connections>
                                             </button>
                                         </subviews>

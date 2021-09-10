@@ -86,7 +86,10 @@ class EditContactViewController: UIViewController, UITextFieldDelegate {
             edit()
             self.performSegue(withIdentifier: "unwindAfterEditing", sender: self)
         }
-        
+    }
+    
+    @IBAction func cancel(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     //// chores

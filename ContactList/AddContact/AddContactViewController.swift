@@ -70,7 +70,7 @@ class AddContactViewController: UIViewController, UITextFieldDelegate {
         addUnderlineLinetoTextField(addressTextField)
         addUnderlineLinetoTextField(additionalNotesTextField)
         
-        saveContactButton.layer.borderColor = UIColor.init(red: 13/255, green: 174/255, blue: 156/255, alpha: 1).cgColor
+        saveContactButton.layer.borderColor = UIColor.init(red: 19/255, green: 193/255, blue: 233/255, alpha: 1).cgColor
     }
     
     func assigntag(){

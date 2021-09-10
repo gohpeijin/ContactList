@@ -38,7 +38,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Contact" id="Zpg-HP-DkL">
                         <barButtonItem key="backBarButtonItem" title=" " id="QMp-C2-149"/>
-                        <barButtonItem key="rightBarButtonItem" image="plus" id="b2m-46-vhk">
+                        <barButtonItem key="rightBarButtonItem" image="add-button" id="b2m-46-vhk">
                             <connections>
                                 <segue destination="sn4-r3-PAC" kind="show" id="6bP-5O-rAt"/>
                             </connections>
@@ -415,7 +415,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="QEG-ib-5KB" secondAttribute="trailing" id="18b-lv-x1q"/>
                                     <constraint firstAttribute="bottom" secondItem="QEG-ib-5KB" secondAttribute="bottom" id="EE2-FU-cTr"/>
@@ -450,7 +450,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="View Contact" id="xDb-Ne-e0L">
                         <barButtonItem key="backBarButtonItem" title=" " id="YJC-BR-bMm"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="kdc-EI-wJ5">
+                        <barButtonItem key="rightBarButtonItem" image="pen" id="kdc-EI-wJ5">
                             <connections>
                                 <segue destination="Alt-T3-hja" kind="show" identifier="editContactSegue" id="HaI-DM-nCd"/>
                             </connections>
@@ -1326,7 +1326,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <size key="titleShadowOffset" width="8" height="9"/>
                                                 <state key="normal" title="Save">
-                                                    <color key="titleColor" red="0.049104692669999998" green="0.68065910529999996" blue="0.61040426569999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.076222695409999999" green="0.75638931990000002" blue="0.91451591249999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1395,7 +1395,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RjB-2P-jkz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.076222695409999999" green="0.75638931990000002" blue="0.91451591249999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
                         </textAttributes>
@@ -1742,7 +1742,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <size key="titleShadowOffset" width="8" height="9"/>
                                                 <state key="normal" title="Save">
-                                                    <color key="titleColor" red="0.049104692669999998" green="0.68065910529999996" blue="0.61040426569999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.076222695409999999" green="0.75638931990000002" blue="0.91451591249999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1755,7 +1755,6 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="saveEditPressed:" destination="Alt-T3-hja" eventType="touchUpInside" id="d1C-ow-Ju8"/>
-                                                    <segue destination="1AO-xo-CII" kind="unwind" unwindAction="unwindToViewContactWithSegue:" id="tkS-7H-aRM"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1795,8 +1794,9 @@
                         <outlet property="nameTextField" destination="da1-t2-Xwz" id="o7E-FL-0kr"/>
                         <outlet property="occupationTextField" destination="hG8-sX-EYh" id="zZp-zh-hIk"/>
                         <outlet property="phoneNumberTextField" destination="kxd-aM-tle" id="rRx-Ky-4us"/>
-                        <outlet property="saveContactButton" destination="Fly-T2-Fsq" id="F1X-7m-fgV"/>
+                        <outlet property="saveEditButton" destination="Fly-T2-Fsq" id="F1X-7m-fgV"/>
                         <outlet property="singleScrollView" destination="IZg-wX-Rac" id="aTa-6g-ucO"/>
+                        <segue destination="1AO-xo-CII" kind="unwind" identifier="unwindAfterEditing" unwindAction="unwindToViewContactWithSegue:" id="l8T-Ij-vF5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ceJ-II-UAF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1806,13 +1806,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add-button" width="24" height="24"/>
         <image name="address" width="256" height="256"/>
         <image name="cancel" width="512" height="512"/>
         <image name="chat" width="512" height="512"/>
         <image name="email" width="256" height="256"/>
         <image name="note" width="256" height="256"/>
+        <image name="pen" width="24" height="24"/>
         <image name="phone" width="256" height="256"/>
-        <image name="plus" width="32" height="32"/>
         <image name="user" width="512" height="512"/>
         <image name="user-1" width="256" height="256"/>
         <image name="work" width="256" height="256"/>

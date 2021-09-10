@@ -22,7 +22,7 @@ class EditContactViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var additionalNotesTextField: UITextField!
     
-    @IBOutlet weak var saveContactButton: UIButton!
+    @IBOutlet weak var saveEditButton: UIButton!
     
     let DEFAULTSTATE = 0, EMPTYSTRING = 1
     
@@ -84,7 +84,7 @@ class EditContactViewController: UIViewController, UITextFieldDelegate {
         
         if (name && phone){
             edit()
-            self.performSegue(withIdentifier: "unwindAfterAdding", sender: self)
+            self.performSegue(withIdentifier: "unwindAfterEditing", sender: self)
         }
         
     }
@@ -98,7 +98,7 @@ class EditContactViewController: UIViewController, UITextFieldDelegate {
         addUnderlineLinetoTextField(addressTextField)
         addUnderlineLinetoTextField(additionalNotesTextField)
         
-        saveContactButton.layer.borderColor = UIColor.init(red: 13/255, green: 174/255, blue: 156/255, alpha: 1).cgColor
+        saveEditButton.layer.borderColor = UIColor.init(red: 19/255, green: 193/255, blue: 233/255, alpha: 1).cgColor
     }
     
     func assigntag(){
